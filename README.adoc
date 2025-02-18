@@ -7,6 +7,10 @@
 An example of a Dockerized link:https://expressjs.com/[ExpressJS] Todo list app. Used as a guideline for building an
 ExpressJS link:https://projectinit.sh/[ProjectInit] flow, but can also be used for learning.
 
+== Preview
+
+image::doc/preview.png[alt="preview"]
+
 == Installation
 
 Clone the repository:
