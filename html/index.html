@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge, chrome=1">
+    <title>Sample ToDo app in Express</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css" />
+    <link rel="icon" type="image/png" href="icons8-express-js-32.png" />
+</head>
+<body>
+    <div class="container">
+        <div class="card mb-4 mt-4">
+            <div class="card-header text-center">Todo list</div>
+            <div class="card-body">
+                <div class="card mb-4 text-center">
+                    <div class="card-body">
+                        <form id="todo-form">
+                            <div class="mb-2">
+                                <label for="todo-input" class="visually-hidden">Task</label>
+                                <input class="form-control" type="text" id="todo-input" placeholder="Add new task" />
+                            </div>
+                            <button type="submit" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="container">
+                    <div id="todo-list" class="table-responsive">
+                        <table class="table table-hover table-bordered">
+                            <colgroup>
+                                <col style="width: 1%">
+                                <col>
+                                <col style="width: 1%">
+                                <col style="width: 1%">
+                            </colgroup>
+                            <thead class="table-active">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Task</th>
+                                    <th colspan="2" scope="col" class="text-center">Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="todo-table-body">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+    <script>
+        window.onload = () => {
+            loadTodos();
+        }
+    </script>
+</body>
+</html>

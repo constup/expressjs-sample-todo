@@ -1,0 +1,8 @@
+.git/
+.idea/
+.vscode/
+.project/
+*.sublime-workspace
+.c9/
+.vs/
+.nyc_output/

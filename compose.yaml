@@ -1,0 +1,11 @@
+services:
+  expressjs_sample_todo:
+    container_name: expressjs_sample_todo
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    restart: on-failure
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./:/usr/src/app
