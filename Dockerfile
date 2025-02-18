@@ -1,19 +1,17 @@
+FROM node:22-alpine AS npm_install_step
+USER node
+WORKDIR /home/node
+COPY --chown=node:node ["package.json", "package-lock.json", "./"]
+RUN ["npm", "install"]
+COPY --chown=node:node ["src/", "./src/"]
+COPY --chown=node:node ["html/", "./html/"]
+RUN ["sh", "-c", "find . ! -name dist ! -name node_modules ! -name src  ! -name html -maxdepth 1 -mindepth 1 -exec rm -rf {} \\;"]
+
 FROM node:22-alpine
-
-WORKDIR /usr/src/app
-COPY . .
-
-RUN apk update && \
-    apk add \
-        dumb-init \
-        && \
-    addgroup -g 11130 express &&\
-    adduser -D -u 1130 -G express express && \
-    chown -R express:express /usr/src/app
-
-USER express
-
+RUN apk add dumb-init
+USER node
+WORKDIR /home/node
+COPY --chown=node:node --from=npm_install_step /home/node ./
 ENTRYPOINT ["/usr/bin/dumb-init", "--"]
 CMD ["sh", "/usr/src/app/start.sh"]
-
 EXPOSE 3000

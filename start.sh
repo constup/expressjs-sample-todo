@@ -1,4 +1,3 @@
 #!/bin/bash
 
-npm install || exit 1
-node app.js
+node /home/node/src/app.js
